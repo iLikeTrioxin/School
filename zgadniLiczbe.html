@@ -1,0 +1,26 @@
+<script>
+
+let losowa  = Math.floor(Math.random() * (10 - 1) ) + 1;
+let wygrana = false;
+
+while(!wygrana){
+    let a = parseInt(prompt("podaj liczbe"));
+	
+    if(a == losowa){
+        wygrana = true;
+        alert("wygrales!");
+    }
+	else
+	{
+        if (a < losowa){
+            alert("pudlo! Liczba jest wieksza");
+        }
+		else
+		{
+			alert("pudlo! Liczba jest mniejsza");
+        }
+        
+    }
+}
+
+</script>
