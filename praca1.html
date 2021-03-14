@@ -1,0 +1,31 @@
+<script>
+
+let tab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+//for(let i = 0; i < tab.length; i++){
+//		document.write(tab[i]+",");
+//	}
+//	document.write("<br>");
+//
+//let ostatnia = tab[0];
+//for(let i = 1; i < tab.length; i++){
+//	let obecna = tab[(i*2)%10];
+//	tab[(i*2)%10] = ostatnia;
+//	ostatnia = obecna;
+//	
+//	for(let i = 0; i < tab.length; i++){
+//		document.write(tab[i]+",");
+//	}
+//	
+//	document.write("in memory("+ostatnia+")"+"<br>");
+//}
+//
+
+let ostatnia = 0
+for(let i = 1; i < tab.length; i++){
+	ostatnia = tab[(i+2)%10];
+	tab[(i+2)%10] = tab[i];
+}
+
+
+</script>

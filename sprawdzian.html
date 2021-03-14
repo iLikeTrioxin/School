@@ -1,0 +1,79 @@
+<script>
+
+//
+// Zad 1
+//
+
+for(let i = 0; i < 10; i++){
+	alert(10 - i);
+}
+
+//
+// Zad 2
+//
+
+let a = parseInt(prompt("dawaj liczbę"));
+let b = parseInt(prompt("dawaj liczbę"));
+
+for(let i = a; i <= b; i++){
+	if(i%2==1){
+		alert(i);
+	}
+}
+
+//
+// Zad 3
+//
+
+let c = parseInt(prompt("dawaj liczbę"));
+let d = parseInt(prompt("dawaj liczbę"));
+
+let suma = 0;
+for(let i = c; i <= d; i++){
+	if(i%3==0){
+		alert(i);
+		suma += i;
+	}
+}
+
+alert("suma tych elementów to " + suma);
+
+//
+// Zad 4
+//
+
+let N = parseInt(prompt("podaj liczbę elementów"));
+let X = parseInt(prompt("podaj wartość pierwszego elementu"));
+let Y = parseInt(prompt("podaj różnicę wartość kolejnych elementów"));
+
+for(let i = 0; i < N; i++){
+	alert((i * Y) + X);
+}
+
+//
+// Zad 5
+//
+
+let srednia = 0;
+for(let i = 0; i < 50; i++){
+	srednia += (-2 + (3 * i));
+}
+
+srednia /= 50;
+
+alert("srednia to " + srednia);
+
+//
+// Zad 6
+//
+
+let lN = parseInt(prompt("podaj liczbę z której obliczyć silnię"));
+
+let wynik = 1;
+for(let i = 1; i <= lN; i++){
+	wynik *= i;
+}
+
+alert(wynik);
+
+</script>

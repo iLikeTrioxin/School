@@ -1,0 +1,424 @@
+<script>
+
+let liczba;
+let wynik;
+let indeks;
+let tmp;
+let tab;
+let tab2;
+let tab3;
+
+//------------------------------\
+//            Zad 1             |
+//------------------------------/
+
+alert("zadanie 1");
+
+tab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// przesuń tablicę o jedną pozycję
+tmp = tab[tab.length-1];
+for (let i =tab.length-2; i >= 0; i--)
+    tab[i+1] = tab[i];
+tab[0] = tmp;
+
+// przesuń tablicę zowu o jedną pozycję
+tmp = tab[tab.length-1];
+for (let i =tab.length-2; i >= 0; i--)
+    tab[i+1] = tab[i];
+tab[0] = tmp;
+
+alert("tablica po wykonaniu programu to: ");
+for(let i=0;i<tab.length;i++)
+    alert(tab[i]);
+
+//----------------------------------\
+//               Zad 2              |
+//----------------------------------/
+
+alert("zadanie 2");
+
+tab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+// przesunięcie tablicy o jedną pozycję w lewo
+tmp = tab[0];
+for (let i =1; i < tab.length; i++)
+    tab[i-1] = tab[i];
+tab[tab.length-1] = tmp;
+
+alert("tablica po wykonaniu programu to: ");
+for(let i=0;i<tab.length;i++)
+    alert(tab[i]);
+
+//-----------------------------------------\
+//                 Zad 3                   |
+//---------------------------------------- /
+
+alert("zadanie 3");
+
+tab  = [7,2,3,7,5,6,7,8,9,2];
+tab2 = {};
+
+// zlicz powtóżeniaw oddzielnej tablicy (słowniku)
+for(let i=0;i<tab.length;i++){
+    if (tab2[tab[i]] === undefined)
+        tab2[tab[i]] = 1;
+    else
+      tab2[tab[i]]++;
+}
+
+// znajdź liczbę z największą liczbą powtóżeń
+tmp = undefined;
+for(let a in tab2){
+    if(tmp === undefined)
+        tmp = a;
+
+    if(tab2[a] > tab2[tmp])
+        tmp = a;
+}
+
+// znajdź pierwszy indeks liczby
+indeks = 0;
+for(let i=0;i<tab.length;i++){
+    if (tab[i] != tmp)
+        continue;
+
+    indeks = i;
+    break;
+}
+
+alert("najczesciej wystepujaca liczba jest " + tmp + " i po raz pierwszy jest na indeksie " + indeks);
+
+//-----------------------------------------\
+//                 Zad 4                   |
+//---------------------------------------- /
+
+alert("zadanie 4");
+
+tab  = [1,1,1,1,1,1,1,1,1,1];
+tab2 = [2,2,2,2,2,2,2,2,2,2];
+tab3 = [];
+
+for(let i=0;i<10;i++){
+    if(i % 2)
+        tab3.push(tab[i]);
+    else
+        tab3.push(tab2[i]);
+}
+
+alert("tablica po wykonaniu programu to: ");
+for(let i=0;i<tab3.length;i++)
+    alert(tab3[i]);
+
+//-----------------------------------------\
+//                 Zad 5                   |
+//---------------------------------------- /
+
+alert("zadanie 5");
+
+let i1 = 0;
+let i2 = 0;
+let i3 = 0;
+
+tab  = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+tab2 = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+tab3 = Array(20);
+
+while (i3 < 20) {
+    if (i1 < 10 && i2 < 10) {
+        if (tab[i1] < tab2[i2]) {
+            tab3[i3] = tab[i1];
+            i1++;
+        } else {
+            tab3[i3] = tab2[i2];
+            i2++;
+        }
+    } else {
+        if (i1 >= 10) {
+            tab3[i3] = tab2[i2];
+            i2++;
+        } else {
+            tab3[i3] = tab[i1];
+            i1++;
+        }
+    }
+    i3++;
+}
+
+alert("tablica po wykonaniu programu to: ");
+for(let i=0;i<tab3.length;i++)
+    alert(tab3[i]);
+
+//-----------------------------------------\
+//                 Zad 6                   |
+//---------------------------------------- /
+
+alert("zadanie 6");
+
+tab  = ["j","a","v","a","s","c","r","i","p","t"];
+tab2 = ["t","y","p","e","s","c","r","i","p","t"];
+tab3 = [];
+
+for(let i=0; i < 10;i++){
+    switch (tab[i]) {
+        case "a": tab3.push(tab[i]);
+        case "e": tab3.push(tab[i]);
+        case "i": tab3.push(tab[i]);
+    }
+    switch (tab2[i]) {
+        case "a": tab3.push(tab2[i]);
+        case "e": tab3.push(tab2[i]);
+        case "i": tab3.push(tab2[i]);
+    }
+}
+
+alert("tablica po wykonaniu programu to: ");
+for(let i=0;i<tab3.length;i++)
+    alert(tab3[i]);
+
+//-----------------------------------------\
+//                 Zad 7                   |
+//---------------------------------------- /
+
+alert("zadanie 7");
+
+tab  = [1,2,3,4,5,6,7,8,9,10];
+wynik = 1;
+
+for(let i=0;i<tab.length;i++)
+    if(tab[i] % 2 == 0)
+        wynik*=tab[i];
+
+alert("iloczyn parzystych elementow wynosi " + wynik);
+
+//-----------------------------------------\
+//                 Zad 8                   |
+//---------------------------------------- /
+
+alert("zadanie 8");
+
+tab = [];
+
+while(true){
+    let z = prompt("dodaj liczbe do tablicy (* by zakonczyc wpisywanie)");
+
+    if(z == "*")
+        break;
+
+    tab.push(z);
+}
+
+let c = (tab.length / 2) - 0.5;
+for(let i=0;i<c;i++){
+    tmp = tab[i];
+    tab[i] = tab[tab.length-(i+1)];
+    tab[tab.length-(i+1)] = tmp;
+}
+
+alert("tablica po wykonaniu programu to: ");
+for(let i=0;i<tab.length;i++)
+    alert(tab[i]);
+
+
+//-----------------------------------------\
+//                 Zad 9                   |
+//---------------------------------------- /
+
+alert("zadanie 9");
+
+liczba = parseInt(prompt("podaj wynkladnik"));
+tab    = Array(20)
+tmp    = 1;
+
+for(let i = 0; i < tab.length; i++){
+    tab[i] = tmp;
+    tmp *= liczba;
+}
+
+alert("tablica po wykonaniu programu to: ");
+for(let i=0;i<tab.length;i++)
+    alert(tab[i]);
+
+
+//-----------------------------------------\
+//                 Zad 10                  |
+//---------------------------------------- /
+
+alert("zadanie 10")
+
+liczba = parseInt(prompt("podaj wynkladnik"));
+tab    = Array(10)
+tmp    = 1;
+
+for(let i = 0; i < tab.length; i++){
+    tab[i] = tmp;
+    tmp *= liczba;
+}
+
+alert("tablica po wykonaniu programu to: ");
+for(let i=0;i<tab.length;i++)
+    alert(tab[i]);
+
+//-----------------------------------------\
+//                 Zad 11                  |
+//---------------------------------------- /
+
+alert("zadanie 11");
+
+liczba = parseInt(prompt("podaj liczbe"));
+wynik = "";
+tmp = 1;
+
+// znajdź największą liczbę potrzebną
+// do określenia liczby w systemie binarnym
+while (liczba >= tmp)
+    tmp*=2;
+
+// dzielenie przez dwa ponieważ ostatnia
+// liczba nigdy nie wynosi 1 więc jest nie potrzebna
+tmp /= 2;
+
+// dziel przez dwa póki waga obecnej liczby nie wynosi 1
+while (true) {
+    if(liczba >= tmp){
+        wynik += "1";
+        liczba -= tmp;
+    }else {
+        wynik += "0";
+    }
+
+    if(tmp == 1)
+        break;
+
+    tmp/=2;
+}
+
+alert("podana liczba w binarnym to: " + wynik);
+
+//-----------------------------------------\
+//                 Zad 12                  |
+//---------------------------------------- /
+
+alert("zadanie 12");
+
+tab    = [-5.5, -1.2, 0, 0, 1.4, 3.5, 6.8, 10, 10, 14.5];
+liczba = parseFloat(prompt("podaj liczbe"));
+
+for(let i=0;i<tab.length;i++){
+    if(tab[i] < liczba)
+        continue;
+
+    // push by poszerzyć tablicę o jeden element
+    // który i tak zostanie nadpisany
+    tab.push(0);
+    for(let j = tab.length-2; j >= i; j--)
+        tab[j+1] = tab[j];
+
+    tab[i] = liczba;
+
+    break;
+}
+
+alert("tablica po wykonaniu programu to: ");
+for(let i=0;i<tab.length;i++)
+    alert(tab[i]);
+
+//-----------------------------------------\
+//                 Zad 13                  |
+//---------------------------------------- /
+
+alert("zadanie 13")
+
+tab = [-5.5, -1.2, 0, 0, 1.4, 3.5, 6.8, 10, 10, 14.5];
+
+// wczytaj indeks tylko w przedziale od 0 do 9
+while(true){
+    indeks = parseInt(prompt("podaj indeks"));
+
+    if(indeks <= 9 && indeks >= 0)
+        break;
+}
+liczba = parseInt(prompt("podaj liczbe"));
+
+// dodaj element na koniec tablicy który i tak zostanie
+// nadpisany przez przesunięcie tablicy w prawo
+tab.push(0);
+for(let i = tab.length-2; i >= indeks; i--)
+    tab[i + 1] = tab[i];
+
+tab[indeks] = liczba;
+
+alert("tablica po wykonaniu programu to: ");
+for(let i=0;i<tab.length;i++)
+    alert(tab[i]);
+
+//-----------------------------------------\
+//                 Zad 14                  |
+//---------------------------------------- /
+
+alert("zadanie 14");
+
+tab = [25,3452,534,532,525,2,3423,42,15];
+wynik = 0;
+tmp   = 0;
+
+for(let i=0;i<tab.length;i++){
+    if(tab[i] % 15 != 0)
+        continue;
+
+    wynik += tab[i];
+    tmp++;
+}
+
+wynik /= tmp;
+
+alert("srednia liczb podzielnych przez 15 wynosi " + wynik);
+
+//-----------------------------------------\
+//                 Zad 15                  |
+//---------------------------------------- /
+
+alert("zadanie 15");
+
+tab   = [23, 5, 25, 2, 24, 34, 52, 33, 12, 42];
+tmp   = 0;
+wynik = 0;
+
+for(let i = 0; i < tab.length; i++){
+    if(tab[i] % 8 != 0)
+        continue;
+
+    wynik += tab[i];
+    tmp   += 1;
+}
+
+wynik /= tmp;
+
+alert("srednia liczb podzielnych przez 8 wynosi " + wynik);
+
+//-----------------------------------------\
+//                 Zad 16                  |
+//---------------------------------------- /
+
+alert("Zadanie 16")
+
+tab  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+tab2 = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
+tab3 = [];
+
+for(let i = 0; i < 10; i += 2){
+    if((i/2) % 2){
+    	  tab3.push(tab[  i  ]);
+        tab3.push(tab[i + 1]);
+    }else{
+        tab3.push(tab2[  i  ]);
+        tab3.push(tab2[i + 1]);
+    }
+}
+
+// wydrukuj wynik zadania
+alert("tablica wykonana na zmiane: 2 elementy pierwszej, 2 elementy drugiej");
+for(let i=0;i<tab3.length;i++)
+    alert(tab3[i]);
+
+</script>

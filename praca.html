@@ -1,0 +1,70 @@
+<script>
+
+let ile_tab = Math.floor(Math.random() * (20 - 5)) + 5;
+
+let tab = [];
+
+for(let i = 0; i <= ile_tab; i++)
+{
+    tab[i] = Math.floor(Math.random() * (100 - 0)) + 0;
+}
+
+//
+// Zad 1
+//
+
+let srednia = 0;
+for(let i = 0; i < tab.length; i++)
+{
+    srednia += tab[i] / tab.length;
+}
+
+alert("srednia wynosi " + srednia);
+
+//
+// Zad 2
+//
+
+for(let i = 0; i < tab.length; i++)
+{
+    alert(tab[tab.length - (i + 1)]);
+}
+
+//
+// Zad 3
+//
+
+unikalne = 0;
+for(let i = 0; i < tab.length; i++)
+{
+	unikalna = true
+    for(let j = 0; j < tab.length; j++)
+    {
+		if(i != j){
+            if(tab[i] == tab[j]){
+		        unikalna = false;
+		    }
+		}
+    }
+	
+	if (unikalna){
+		unikalne += 1;
+	}
+}
+
+
+//
+// Zad 4
+//
+
+alert("unikalnych liczb jest " + unikalne);
+
+for(let i = 0; i < tab.length; i++)
+{
+    for(let j = 0; j < tab.length; j++)
+    {
+		document.write(tab[i] + " - " + tab[j] + " = " + (tab[i] - tab[j]) + "<br>");
+    }
+}
+
+</script>
