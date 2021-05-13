@@ -1,0 +1,24 @@
+<script>
+
+function wordsToUpper(sentence){
+    let result = "";
+
+    // Always start with upper case letter
+    result += sentence[0].toUpperCase();
+
+    for(let i=1; i < sentence.length; i++){
+        let tmp = sentence[i];
+
+        if(sentence[i-1] == ' ') tmp = tmp.toUpperCase();
+
+        result += tmp;
+    }
+
+    return result;
+}
+
+let zdanie = prompt("Podaj zdanie do sformatowanie.");
+
+alert(wordsToUpper(zdanie));
+
+</script>

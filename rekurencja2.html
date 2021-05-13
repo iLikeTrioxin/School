@@ -1,0 +1,32 @@
+<script>
+
+// zwraca następujący słownik: {'w' - wynik_nwd, 'x' - mnożnik_liczby_a, 'y' - mnożnik_liczby_y}
+function NWD(a, b){
+    if (b == 0) return NWD.w = a;
+    
+    // reset zmiennych funkcji po to by można było
+    // wykonać ją wiele razy i wynik był nadal poprawny.
+    NWD.x = 1;
+    NWD.y = 0;
+
+    NWD(b, a%b);
+    
+    let tmp = NWD.y;
+    NWD.y = NWD.x - parseInt( a / b ) * NWD.y;
+    NWD.x = tmp;
+
+    return {
+        "w": NWD.w,
+        "x": NWD.x,
+        "y": NWD.y
+    };
+}
+
+let a = parseInt(prompt("a"));
+let b = parseInt(prompt("b"));
+
+let wynik = NWD(a, b); 
+
+document.write(`NWD(${a}, ${b}) = ${a} * ${wynik['x']} + ${b} * ${wynik['y']} = ${wynik['w']}`);
+
+</script>

@@ -1,0 +1,195 @@
+<script>
+
+let la;
+let lb;
+let lc;
+
+//
+// Zad. 1 (SUMA)
+//
+
+alert("Zad. 1 (SUMA)");
+
+la = parseInt(prompt("podaj liczbę a."));
+lb = parseInt(prompt("podaj liczbę b."));
+
+function SUMA(a, b){
+    return a + b;
+}
+
+alert( "Suma tych liczb to: " + SUMA(la, lb) );
+
+//
+// Zad. 2 (PODSTAWY)
+//
+
+alert("Zad. 2 (PODSTAWY)")
+
+la = parseInt(prompt("podaj liczbę a."));
+lb = parseInt(prompt("podaj liczbę b."));
+
+function PODSTAWY(a, b){
+    alert("różnica: " + (a - b));
+    alert("iloczyn: " + (a * b));
+    alert("iloraz: "  + (a / b));
+}
+
+PODSTAWY(la, lb);
+
+//
+// Zad. 3 (KALKULATOR)
+//
+
+alert("Zad. 3 (KALKULATOR)");
+
+la = parseInt(prompt("podaj liczbę a."));
+lb = parseInt(prompt("podaj liczbę b."));
+lc = parseInt(prompt("podaj działanie (1-suma, 2-różnica, 3-iloczyn, 4-iloraz)"));
+
+function KALKULATOR(a, b, dzialanie){
+    switch(dzialanie){
+        case 1:
+            return (a + b);
+            break;
+        case 2:
+            return (a - b);
+            break;
+        case 3:
+            return (a * b);
+            break;
+        case 4:
+            return (a / b);
+            break;
+        default:
+            return 0;
+            break;
+    }
+}
+
+alert( "Wynik to: " + KALKULATOR(la, lb, lc) );
+
+//
+// Zad. 4 (MAKS)
+//
+
+alert("Zad. 4 (MAKS)");
+
+la = parseInt(prompt("podaj liczbę a."));
+lb = parseInt(prompt("podaj liczbę b."));
+lc = parseInt(prompt("podaj liczbę c."));
+
+function MAKS(a, b, c){
+    let max = a;
+
+    if (max < b)
+        max = b;
+    
+    if(max < c)
+        max = c;
+    
+    return max;
+}
+
+alert( "Największą z nich jest liczba: " + MAKS(la, lb, lc) );
+
+//
+// Zad. 5 (WZROST)
+//
+
+alert("Zad. 5 (WZROST)");
+
+la = parseInt(prompt("Podaj wzrost."));
+
+function WZROST(wzrost){
+    if(wzrost < 150)
+        return "jesteś niski.";
+    else if(wzrost > 180)
+        return "jesteś wysoki.";
+    else
+        return "jesteś średniego wzrostu.";
+}
+
+alert( WZROST(la) );
+
+//
+// Zad. 6 (BMI)
+//
+
+alert("Zad. 6 (BMI)");
+
+la = parseInt(prompt("podaj wzrost (w cm)."));
+lb = parseInt(prompt("podaj wagę (w kg)."));
+
+function BMI(wzrost, waga){
+    let bmi = waga / (wzrost * wzrost);
+
+    if(bmi < 18.5)
+        return "za małe!";
+    else if(bmi > 25)
+        return "za duże!";
+    else
+        return "OK!";
+}
+
+alert( "Twoje BMI jest " + BMI( (la / 100), lb ) );
+
+//
+// Zad. 7 (STARSZY)
+//
+
+alert("Zad. 7 (STARSZY)");
+
+la = parseInt(prompt("podaj datę urodzenia pierwszej osoby."));
+lb = parseInt(prompt("podaj datę urodzenia drugiej osoby."  ));
+
+function STARSZY(data1, data2){
+    if(data1 < data2)
+        return "pierwsza";
+    else if(data1 > data2)
+        return "druga";
+    else
+        return "żadna nie";
+}
+
+alert( STARSZY(la, lb) + " jest starsza.");
+
+//
+// Zad. 8 (PRZESTEPNY)
+//
+
+alert("Zad. 8 (PRZESTEPNY)");
+
+la = parseInt(prompt("podaj rok."));
+
+function PRZESTEPNY(rok){
+    if(rok % 4 == 0)
+        return " jest przystępny.";
+    else
+        return " nie jest przystępny.";
+}
+
+alert( "Rok " + la + PRZESTEPNY(la) );
+
+//
+// Zad. 9 (TROJKAT)
+//
+
+alert("Zad. 9 (TROJKAT)");
+
+la = parseInt(prompt("podaj długość boku a."));
+lb = parseInt(prompt("podaj długość boku b."));
+lc = parseInt(prompt("podaj długość boku c."));
+
+function TROJKAT(a, b, c){
+    let najdluzszyBok  = Maks(a, b, c);
+    let resztaTrojkatu = (a + b + c) - najdluzszyBok;
+
+    if(resztaTrojkatu > najdluzszyBok)
+        return "można";
+    else
+        return "nie można";
+}
+
+alert( "Z tych odcinków " + TROJKAT(la, lb, lc) + " ułożyć trójkątu." );
+
+</script>
