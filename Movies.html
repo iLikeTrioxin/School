@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Kamil Dziedzic</title>
+    <style>
+        body{
+          display: grid;
+          background-color: #023;
+          margin: 0;
+          height: 100vh;
+          width: 100vw;
+          grid-template-columns: 15% auto 20%;
+        }
+        #rightAd img { width:100%; margin-top: 33%; }
+        .leftPanel { color: #CCC; font-weight: bold; text-align:center; background-color: #1A1C1D; margin: 0; height: 100%; }
+        .leftPanel p { cursor: pointer; }
+        .mainPanel { width: 100%; }
+        #genre { margin: 0; width: 100%; text-align: center; color: #DDF; font-weight: bold; font-size: 4rem; }
+        #thumb { float: right; width: 40%; margin: 10px;}
+        #title { margin: 10px; width: 100%; text-align: center; color: #DDF; font-weight: bold; font-size: 2rem; }
+        #desc  { margin: 10px; color: #DDF; margin-top:50px; }
+    </style>
+</head>
+
+<body>
+    <div class="leftPanel">
+        <h1> Categories </h1>
+        <p id="action"  > action   </p>
+        <p id="fantasy" > fantasy  </p>
+        <p id="sci-fi"  > sci-fi   </p>
+        <p id="horror"  > horror   </p>
+        <p id="thriller"> thriller </p>
+        <p id="romance" > romance  </p>
+    </div>
+    <div class="mainPanel">
+        <h2 id="genre"></h2>
+
+        <a id="thumbhref"><img id="thumb"></a>
+    
+        <h3 id="title"></h3>
+        <p  id="desc" ></p >
+    </div>
+    <div class="rightPanel"><a id="rightAd" href="https://us.coca-cola.com/products/coca-cola-zero-sugar"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fbarmagazine.co.uk%2Fwp-content%2Fuploads%2F2017%2F01%2FCCEPWEBcopy.jpg&f=1&nofb=1"></a></div>
+</body>
+
+<script>
+
+movies = {
+    "action": {
+        "name" : "Dunkirk",
+        "URL"  : "https://www.imdb.com/title/tt5013056/",
+        "desc" : "Allied soldiers from Belgium, the British Commonwealth and Empire, and France are surrounded by the German Army and evacuated during a fierce battle in World War II.",
+        "thumb": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fres.cloudinary.com%2Fjerrick%2Fimage%2Fupload%2Fc_scale%2Cq_auto%2Fjdrk5glr5li9oya2iji6.jpg&f=1&nofb=1"
+    },
+    "fantasy": {
+        "name" : "The Lord of the Rings: The Fellowship of the Ring",
+        "URL"  : "https://www.imdb.com/title/tt0120737/",
+        "desc" : "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+        "thumb": "https://upload.wikimedia.org/wikipedia/en/8/8a/The_Lord_of_the_Rings_The_Fellowship_of_the_Ring_%282001%29.jpg"
+    },
+    "sci-fi": {
+        "name" : "2001: A Space Odyssey",
+        "URL"  : "https://www.imdb.com/title/tt0062622/",
+        "desc" : "After discovering a mysterious artifact buried beneath the Lunar surface, mankind sets off on a quest to find its origins with help from intelligent supercomputer H.A.L. 9000.",
+        "thumb": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ffanart.tv%2Ffanart%2Fmovies%2F62%2Fmovieposter%2F2001-a-space-odyssey-5224e76a86d20.jpg&f=1&nofb=1"
+    },
+    "horror" : {
+        "name" : "Malignant",
+        "URL"  : "https://www.imdb.com/title/tt3811906/",
+        "desc" : "Madison is paralyzed by shocking visions of grisly murders, and her torment worsens as she discovers that these waking dreams are in fact terrifying realities.",
+        "thumb": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Famc-theatres-res.cloudinary.com%2Fv1626816972%2Famc-cdn%2Fproduction%2F2%2Fmovies%2F62100%2F62051%2FPosterDynamic%2F125877.jpg&f=1&nofb=1"
+    },
+    "thriller": {
+        "name" : "The Dark Knight",
+        "URL"  : "https://www.imdb.com/title/tt0468569/",
+        "desc" : "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+        "thumb": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fsoundeffects%2Fimages%2F9%2F9b%2FP173378_p_v8_au.jpg%2Frevision%2Flatest%3Fcb%3D20171004190518&f=1&nofb=1"
+    },
+    "romance": {
+        "name" : "The French Dispatch",
+        "URL"  : "https://www.imdb.com/title/tt8847712/",
+        "desc" : "A love letter to journalists set in an outpost of an American newspaper in a fictional twentieth century French city that brings to life a collection of stories published in 'The French Dispatch Magazine'.",
+        "thumb": "https://upload.wikimedia.org/wikipedia/en/7/78/The_French_Dispatch.jpeg"
+    }
+}
+
+function displayMovie(genre){
+    movie = movies[genre];
+    
+    document.getElementById("genre").innerHTML = `classic of ${genre} genre.`;
+    
+    document.getElementById("title").innerHTML = movie["name"];
+    
+    document.getElementById("thumb").src = movie["thumb"];
+    document.getElementById("thumbhref").href = movie["URL"];
+    
+    document.getElementById("desc").innerHTML = movie["desc"];
+}
+
+document.getElementById("action"  ).addEventListener("click", () => {displayMovie("action"  )});
+document.getElementById("fantasy" ).addEventListener("click", () => {displayMovie("fantasy" )});
+document.getElementById("sci-fi"  ).addEventListener("click", () => {displayMovie("sci-fi"  )});
+document.getElementById("horror"  ).addEventListener("click", () => {displayMovie("horror"  )});
+document.getElementById("thriller").addEventListener("click", () => {displayMovie("thriller")});
+document.getElementById("romance" ).addEventListener("click", () => {displayMovie("romance" )});
+
+displayMovie("action");
+
+</script>
+
+</html>
